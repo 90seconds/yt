@@ -45,6 +45,8 @@ module Yt
       # @return [String] the level of output to print for debugging purposes.
       attr_accessor :log_level
 
+      attr_accessor :referer
+
       # Initialize the global configuration settings, using the values of
       # the specified following environment variables by default.
       def initialize

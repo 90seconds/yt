@@ -149,7 +149,9 @@ module Yt
       end
       @headers['User-Agent'] = 'Yt::Request (gzip)'
       @headers['Authorization'] = "Bearer #{@auth.access_token}" if @auth
-      @headers.each{|name, value| request.add_field name, value}
+      @headers['Referer'] = Yt.configuration.referer if Yt.configuration.referer.present?
+
+      @headers.each { |name, value| request.add_field name, value }
     end
 
     # @return [Boolean] whether the class of response returned by running
